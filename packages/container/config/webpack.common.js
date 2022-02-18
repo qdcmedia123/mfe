@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { merge } = require("webpack-merge");
 
-module.exports = {
+const commonConfig = {
   module: {
     rules: [
       {
@@ -22,3 +23,24 @@ module.exports = {
     }),
   ]
 };
+
+
+const sassConfig = {
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+    ],
+  },
+};
+
+module.exports = merge(commonConfig, sassConfig);
