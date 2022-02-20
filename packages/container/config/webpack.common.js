@@ -5,7 +5,7 @@ const commonConfig = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -16,6 +16,9 @@ const commonConfig = {
         },
       },
     ],
+  },
+  resolve: {
+    extensions: [".js", ".jsx"]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -43,4 +46,15 @@ const sassConfig = {
   },
 };
 
-module.exports = merge(commonConfig, sassConfig);
+const cssConfig =  {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
+};
+
+module.exports = merge(commonConfig, sassConfig, cssConfig);

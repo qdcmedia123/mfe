@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import MarketingApp from "./components/MarketingApp";
 import Header from "./components/Header";
+import Test from "./components/Test.jsx";
 import './style.scss';
+import './style.css';
 import {
   StylesProvider,
   createGenerateClassName,
@@ -19,6 +21,7 @@ export default () => {
       <StylesProvider generateClassName={generateClassName}>
         <div>
           <Header />
+          <Test/>
           <MarketingApp />
         </div>
       </StylesProvider>
