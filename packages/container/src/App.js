@@ -4,11 +4,15 @@ import {
 import React, { lazy, Suspense, useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
-const AuthAppLazy = lazy(() => import("./components/AuthApp"));
-const MarketingAppLazy = lazy(() => import("./components/MarketingApp"));
 import Progress from "./components/progress";
 import './style.css';
 import './style.scss';
+// import AuthApp from "./components/AuthApp";
+// import MarketingApp from "./components/MarketingApp";
+
+const AuthAppLazy = lazy(() => import("./components/AuthApp"));
+const MarketingAppLazy = lazy(() => import("./components/MarketingApp"));
+
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "co",
