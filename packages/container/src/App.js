@@ -1,8 +1,10 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MarketingApp from "./components/MarketingApp";
 import Header from "./components/Header";
 import Test from "./components/Test.jsx";
+import AuthApp from './components/AuthApp';
+
 import './style.scss';
 import './style.css';
 import {
@@ -21,8 +23,11 @@ export default () => {
       <StylesProvider generateClassName={generateClassName}>
         <div>
           <Header />
-          <Test/>
-          <MarketingApp />
+          <Switch>
+            <Route path="/auth" component={AuthApp}></Route>
+            <Route path="/" component={MarketingApp}></Route>
+          </Switch>
+         
         </div>
       </StylesProvider>
     </BrowserRouter>
